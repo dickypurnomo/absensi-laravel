@@ -54,8 +54,8 @@
             <td>{{ $absensi->id }}</td>
             <td>{{ $absensi->name }}</td>
             <td>
-                @if ($user->division)
-                {{ $user->division->name }}
+                @if ($absensi->division)
+                {{ $absensi->division->name }}
                 @else
                 <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
                 @endif
