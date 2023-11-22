@@ -56,11 +56,10 @@ Route::put('/dashboard/employees/{user:id}', [UserController::class, 'update'])-
 Route::get('/dashboard/employees/add', [UserController::class, 'show'])->middleware('auth');
 Route::delete('/dashboard/employees/{user:id}', [UserController::class, 'destroy'])->middleware('auth');
 
-
-Route::resource('/dashboard/divisions', DivisionController::class)->except(['edit', 'update'])->middleware('auth');
+Route::resource('/dashboard/divisions', DivisionController::class)->except(['edit', 'update', 'destroy'])->middleware('auth');
 Route::get('/dashboard/divisions/{division:id}/edit', [DivisionController::class, 'edit'])->middleware('auth');
 Route::put('/dashboard/divisions/{division:id}', [DivisionController::class, 'update'])->middleware('auth');
-
+Route::delete('/dashboard/divisions/{division:id}', [DivisionController::class, 'destroy'])->middleware('auth');
 
 Route::get('/dashboard/reports', function () {
     $user_name = auth()->user()->name;

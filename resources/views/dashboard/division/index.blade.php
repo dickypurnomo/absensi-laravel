@@ -24,6 +24,7 @@
                             </div>
                         <button class="btn btn-dark py-2 mt-3" type="submit">Add Division</button>
                     </div>
+                </form>
                 </div>
             </div>
 
@@ -59,7 +60,11 @@
                                 <th scope="row">{{ $division->id }}</th>
                                 <td>{{ $division->name }}</td>
                                 <td><a href="/dashboard/divisions/{{ $division->id }}/edit" class="badge bg-dark border-0"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="" class="badge bg-dark border-0"><i class="fa-solid fa-trash"></i></a></td>
+                                    <form action="/dashboard/divisions/{{ $division->id }}" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="badge bg-dark border-0" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></button>
+                                    </form>
                             </tr>
                             @endforeach
                         </tbody>

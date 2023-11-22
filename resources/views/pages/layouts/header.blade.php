@@ -21,20 +21,20 @@
 
               <ul class="nav nav-underline col-12 col-md-auto mb-2 my-2 justify-content-center mb-md-0">
                 <li><a href="/" class="nav-link px-4 text-dark {{ ($active === "home") ? 'active' : '' }}">Home</a></li>
-                <li><a href="/shop" class="nav-link px-4 text-dark {{ ($active === "shop") ? 'active' : '' }}">Shop</a></li>
-                <li><a href="/blog" class="nav-link px-4 text-dark {{ ($active === "blog") ? 'active' : '' }}">Blog</a></li>
-                <li><a href="/gallery" class="nav-link px-4 text-dark {{ ($active === "gallery") ? 'active' : '' }}">Gallery</a></li>
-                <li><a href="/about" class="nav-link px-4 text-dark {{ ($active === "about") ? 'active' : '' }}">About</a></li>
+                <li><a href="/" class="nav-link px-4 text-dark {{ ($active === "shop") ? 'active' : '' }}">Shop</a></li>
+                <li><a href="/" class="nav-link px-4 text-dark {{ ($active === "blog") ? 'active' : '' }}">Blog</a></li>
+                <li><a href="/" class="nav-link px-4 text-dark {{ ($active === "gallery") ? 'active' : '' }}">Gallery</a></li>
+                <li><a href="/" class="nav-link px-4 text-dark {{ ($active === "about") ? 'active' : '' }}">About</a></li>
               </ul>
 
               <div class="col-md-3 text-end button">
               @auth
               <li class="nav-item dropdown list-unstyled">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Welcome back, {{ auth()->user()->firstname }}
+                <a class="nav-link dropdown-toggle" href="/dashboard" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welcome back, {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu list-unstyled">
-                  <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li>
                   <form action="/logout" method="POST">

@@ -35,7 +35,7 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:name|max:255',
+            'name' => 'required|max:255',
         ]);
 
         Division::create($validatedData);
@@ -82,6 +82,7 @@ class DivisionController extends Controller
      */
     public function destroy(Division $division)
     {
-        //
+        Division::destroy($division->id);
+        return redirect('/dashboard/divisions')->with('success', 'Division has been deleted!');
     }
 }
