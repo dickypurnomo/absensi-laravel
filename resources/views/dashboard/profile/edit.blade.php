@@ -35,7 +35,7 @@
                         <div class="mb-3 col-6">
                           <label for="divisions_id" class="form-label">Divisions</label>
                           <input type="hidden" class="form-control" id="divisions_id" name="divisions_id" value="{{ $user->divisions_id }}" readonly required>
-                          <input type="text" class="form-control" value="{{ $user->division->name }}" readonly required>
+                          <input type="text" class="form-control" value="{{ $user->division->name ?? 'Division does not exist' }}" readonly required>
                         </div>
                         <div class="mb-3 col-6">
                           <label for="phonenumber" class="form-label">Phone Number</label>
@@ -86,3 +86,5 @@
 <a href="/dashboard/profile" class="btn btn-outline-dark my-3">Back</a>
 
 @endsection
+
+

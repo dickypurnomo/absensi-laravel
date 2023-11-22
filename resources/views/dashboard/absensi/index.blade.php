@@ -26,7 +26,7 @@
                       <div class="mb-3">
                       <label for="divisions_id" class="form-label">Division</label>
                         <input type="hidden" class="form-control" id="divisions_id" name="divisions_id" value="{{ $user->divisions_id }}" readonly>
-                        <input type="text" class="form-control" value="{{ $user->division->name }}" readonly>
+                        <input type="text" class="form-control" value="{{ $user->division->name ?? 'Division does not exist' }}" readonly>
                       </div>
                       <div class="mb-3">
                           <label for="status" class="form-label">Status</label>

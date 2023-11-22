@@ -67,7 +67,7 @@ class ProfileController extends Controller
             'name' => 'required',
             'divisions_id' => 'required',
             'address' => 'required',
-            'phonenumber' => 'required|max:255',
+            'phonenumber' => 'required|numeric|max:255',
             'email' => 'required|max:255|email',
             'password'  => 'required|min:5|max:255',
         ];

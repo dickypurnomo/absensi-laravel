@@ -85,7 +85,7 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'divisions_id' => 'required',
             'address' => 'required',
-            'phonenumber' => 'required|max:255',
+            'phonenumber' => 'required|numeric|max:255',
             'email' => 'required|max:255|email',
             'password' => 'nullable',
         ];

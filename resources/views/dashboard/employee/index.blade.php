@@ -33,7 +33,15 @@
                         <tr>
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->division->name }}</td>
+
+                            <td>
+                                @if ($user->division)
+                                  {{ $user->division->name }}
+                                @else
+                                  <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
+                                @endif
+                            </td>
+
                             <td>{{ $user->address }}</td>
                             <td>{{ $user->phonenumber }}</td>
                             <td>{{ $user->email }}</td>

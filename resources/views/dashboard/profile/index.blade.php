@@ -19,7 +19,11 @@
                 @if ($loop->first)
                   <h1 class="fs-4 mb-0">{{ $user->name }}</h1>
                     <p class="fs-5 my-0">
-                    {{ $user->division->name }}<br>
+                        @if ($user->division)
+                            {{ $user->division->name }}
+                        @else
+                            <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
+                        @endif
                     {{ $user->email }}<br>
                     {{ $user->phonenumber }}<br>
                     {{ $user->address }}

@@ -53,7 +53,13 @@
         <tr>
             <td>{{ $absensi->id }}</td>
             <td>{{ $absensi->name }}</td>
-            <td>{{ $absensi->division->name }}</td>
+            <td>
+                @if ($user->division)
+                {{ $user->division->name }}
+                @else
+                <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
+                @endif
+            </td>
             <td>{{ $absensi->date }}</td>
             <td>{{ $absensi->in }}</td>
             <td>{{ $absensi->out }}</td>
