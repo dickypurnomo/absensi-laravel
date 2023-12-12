@@ -39,7 +39,7 @@ class DivisionController extends Controller
         ]);
 
         Division::create($validatedData);
-        return redirect('/dashboard/divisions')->with('success', 'Division has been added to database!');
+        return redirect('/dashboard/divisions')->with('success', 'Divisions have been added!');
     }
 
     /**
@@ -74,7 +74,7 @@ class DivisionController extends Controller
 
         Division::where('id', $division->id)->update($validatedData);
 
-        return redirect('/dashboard/divisions')->with('success', 'Data changed successfully!');
+        return redirect('/dashboard/divisions')->with('success', 'Divisions have been updated!');
     }
 
     /**

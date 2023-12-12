@@ -43,22 +43,17 @@
                     Administrator
                 </div>
                 <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/employees/add">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Add Employee
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/divisions">
-                    <i class="fa-solid fa-users"></i>
-                    Add Division
-                  </a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/employees">
                     <i class="fa-solid fa-database"></i>
                     Employees
                   </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/divisions">
+                      <i class="fa-solid fa-users"></i>
+                      Division
+                    </a>
+                </li>
               </ul>
             @endcan
 

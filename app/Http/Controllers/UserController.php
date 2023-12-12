@@ -49,7 +49,7 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        return redirect('/dashboard/employees/add')->with('success', 'User has been added to database!');
+        return redirect('/dashboard/employees')->with('success', 'Users have been added!');
     }
 
     /**
@@ -85,13 +85,14 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'divisions_id' => 'required',
             'address' => 'required',
-            'phonenumber' => 'required|numeric|max:255',
-            'email' => 'required|max:255|email',
+            'phonenumber' => 'required|numeric',
+            'email' => 'required|email',
             'password' => 'nullable',
         ];
 
         $validatedData = $request->validate($rules);
-        if (empty($validatedData['password'])) {
+
+        if (is_null($validatedData['password']) || $validatedData['password'] === '') {
             $validatedData['password'] = $user->password;
         } else {
             $validatedData['password'] = Hash::make($validatedData['password']);
@@ -99,8 +100,9 @@ class UserController extends Controller
 
         User::where('id', $user->id)->update($validatedData);
 
-        return redirect('/dashboard/employees')->with('success', 'Data changed successfully!');
+        return redirect('/dashboard/employees')->with('success', 'User data has been updated!');
     }
+
     /**
      * Remove the specified resource from storage.
      */

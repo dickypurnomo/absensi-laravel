@@ -23,7 +23,8 @@
                         <label for="name" class="form-label">Division Name</label>
                         <input type="name" class="form-control" id="name" name="name" placeholder="CEO" value="{{ old('name', $division->name) }}" required>
                     </div>
-                    <button class="btn btn-dark py-2 mt-3" type="submit">Update Division</button>
+                    <button class="btn btn-dark" type="submit">Update Division</button>
+                    <a href="/dashboard/divisions" class="btn btn-outline-dark my-3">Cancel</a>
                 </form>
             </div>
             </div>

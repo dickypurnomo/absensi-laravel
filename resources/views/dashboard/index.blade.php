@@ -26,6 +26,7 @@
                         </thead>
                         <tbody>
                             @foreach ($absensis as $absensi)
+                            @if (date('Y-m-d') === $absensi->date)
                             <tr>
                                 <th scope="row">{{ $absensi->id }}</th>
                                 <td>{{ $absensi->name }}</td>
@@ -33,6 +34,7 @@
                                 <td>{{ $absensi->in }}</td>
                                 <td>{{ $absensi->status }}</td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                       </table>
@@ -55,6 +57,7 @@
                         </thead>
                         <tbody>
                             @foreach ($absensis as $absensi)
+                            @if (date('Y-m-d') === $absensi->date)
                             <tr>
                                 <th scope="row">{{ $absensi->id }}</th>
                                 <td>{{ $absensi->name }}</td>
@@ -62,6 +65,7 @@
                                 <td>{{ $absensi->out }}</td>
                                 <td>{{ $absensi->status }}</td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                       </table>

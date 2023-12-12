@@ -24,7 +24,7 @@
                         @else
                             <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
                         @endif
-                    {{ $user->email }}<br>
+                    | {{ $user->email }}<br>
                     {{ $user->phonenumber }}<br>
                     {{ $user->address }}
                     </p>

@@ -56,7 +56,7 @@ class AbsensiController extends Controller
 
         $absensi = Absensi::create($validatedData);
 
-        return redirect('/dashboard/' . $absensi->id . '/edit')->with('success', 'Thank you for taking attendance today!');
+        return redirect('/dashboard/absensi/' . $absensi->id . '/edit')->with('success', 'Thank you for taking attendance today!');
     }
 
 
@@ -106,7 +106,7 @@ class AbsensiController extends Controller
         $validatedData = $request->validate($rules);
         Absensi::where('id', $absensi->id)->update($validatedData);
 
-        return redirect('/dashboard/absensi')->with('success', 'Thank you for taking attendance today!');
+        return redirect('/dashboard/absensi')->with('success', 'Thank you for working today!');
     }
 
     /**

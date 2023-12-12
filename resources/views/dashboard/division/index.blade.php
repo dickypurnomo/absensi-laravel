@@ -41,6 +41,10 @@
             </div>
     </div>
 
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Division</h1>
+    </div>
+
     <div class="row">
         <div class="col-6">
             <div class="card mb-3">

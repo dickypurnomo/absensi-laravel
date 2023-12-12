@@ -48,7 +48,7 @@
                   </div>
 
                   <button class="btn btn-dark w-100 py-2 my-2" type="submit">Login</button>
-                  <p class="text-center text-body-secondary mt-5 mb-3">&copy; 2023 Kirin ★ Peformance</p>
+                  <p class="text-center text-body-secondary mt-5 mb-3">&copy; {{ date('Y') }} Kirin ★ Peformance</p>
                 </form>
               </main>
         </div>

@@ -67,17 +67,18 @@ class ProfileController extends Controller
             'name' => 'required',
             'divisions_id' => 'required',
             'address' => 'required',
-            'phonenumber' => 'required|numeric|max:255',
-            'email' => 'required|max:255|email',
+            'phonenumber' => 'required|numeric',
+            'email' => 'required|email',
             'password'  => 'required|min:5|max:255',
         ];
 
         $validatedData = $request->validate($rules);
+
         $validatedData['password'] = Hash::make($rules['password']);
 
         User::where('id', $user->id)->update($validatedData);
 
-        return redirect('/dashboard/profile')->with('success', 'Data changed successfully!');
+        return redirect('/dashboard/profile')->with('success', 'User data has been updated!');
     }
 
     /**

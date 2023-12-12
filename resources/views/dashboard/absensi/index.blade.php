@@ -69,8 +69,13 @@
                 <h6>{{ date('d-m-Y')}} <h6 id="time"></h6></h6>
             </div>
             <div class="card-body">
+                @if (date('Y-m-d') === $absensis->date)
                 <h5>IN : {{ $absensi_in }}</h5>
                 <h5>OUT : {{ $absensi_out }}</h5>
+                @else
+                <h5>IN : -</h5>
+                <h5>OUT : -</h5>
+                @endif
             </div>
           </div>
 
@@ -82,7 +87,7 @@
                 <div class="card-body">
                     <p>
                         @if ($absensis)
-                        If the exit attendance page does not appear, <a href="/dashboard/{{ $absensis->id }}/edit" class="fw-semibold">click here</a>. <br>
+                        If the exit attendance page does not appear, <a href="/dashboard/absensi/{{ $absensis->id }}/edit" class="fw-semibold">click here</a>. <br>
                         @endif
 
                         If you take a status other than <b class="text-decoration-underline">Attend</b>. then just fill in the attendance once.<br>

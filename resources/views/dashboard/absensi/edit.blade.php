@@ -16,7 +16,7 @@
         <div class="card">
             <h5 class="card-header p-3"><i class="fa-solid fa-check-to-slot"></i> ABSENSI OUT</h5>
             <div class="card-body">
-                <form action="/dashboard/{{ $absensi->id }}" method="POST">
+                <form action="/dashboard/absensi/{{ $absensi->id }}" method="POST">
                     @method('put')
                     @csrf
                     @foreach ($users as $user)

@@ -43,14 +43,15 @@
                         </div>
                         <div class="mb-3 col-6">
                           <label for="email" class="form-label">Email</label>
-                          <input type="text" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" required>
+                          <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $user->email) }}" required>
                         </div>
                         <div class="mb-3 col-6">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                      <button class="btn btn-dark py-2 mt-3" type="submit">Update Profile</button>
                     </div>
+                    <button class="btn btn-dark" type="submit">Update Profile</button>
+                    <a href="/dashboard/profile" class="btn btn-outline-dark my-3">Cancel</a>
                 </form>
                 </div>
             </div>
@@ -83,7 +84,6 @@
             </div>
         </div>
     </div>
-<a href="/dashboard/profile" class="btn btn-outline-dark my-3">Back</a>
 
 @endsection
 
