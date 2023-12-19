@@ -19,7 +19,7 @@
               <li class="nav-item">
                 <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/profile">
                   <i class="fa-solid fa-user"></i>
-                  Profile
+                  Profil
                 </a>
               </li>
               <li class="nav-item">
@@ -32,7 +32,7 @@
               <li class="nav-item">
                 <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/reports">
                   <i class="fa-solid fa-file-lines"></i>
-                  Reports
+                  Laporan
                 </a>
               </li>
             </ul>
@@ -42,18 +42,31 @@
                 <div class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-body-secondary text-uppercase">
                     Administrator
                 </div>
-                <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/employees">
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed nav-link text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#Employees" aria-expanded="false" aria-controls="Employees">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="ms-2">Karyawan</span>
+                </button>
+                <div class="collapse" id="Employees" style="margin-top: -1rem;">
+                    <div class="card card-body border-0" style="background-color: transparent;">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                            <li><a href="/dashboard/employees/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded ms-4">Tambah Karyawan</a></li>
+                            <li><a href="/dashboard/employees" class="link-body-emphasis d-inline-flex text-decoration-none rounded pt-2 ms-4">Data Karyawan</a></li>
+                        </ul>
+                    </div>
+                  </div>
+
+                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed nav-link text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#Division" aria-expanded="false" aria-controls="Division">
                     <i class="fa-solid fa-database"></i>
-                    Employees
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 text-dark" href="/dashboard/divisions">
-                      <i class="fa-solid fa-users"></i>
-                      Division
-                    </a>
-                </li>
+                    <span class="ms-2">Divisi</span>
+                </button>
+                <div class="collapse" id="Division" style="margin-top: -1rem;">
+                    <div class="card card-body border-0" style="background-color: transparent;">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                            <li><a href="/dashboard/divisions/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded ms-4">Tambah Divisi</a></li>
+                            <li><a href="/dashboard/divisions" class="link-body-emphasis d-inline-flex text-decoration-none rounded pt-2 ms-4">Data Divisi</a></li>
+                        </ul>
+                    </div>
+                  </div>
               </ul>
             @endcan
 

@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Edit Profile</h1>
+    <h1 class="h2">Edit Data Diri</h1>
 </div>
 
 @if (session()->has('success'))
@@ -14,31 +14,31 @@
 <div class="row">
         <div class="col-6">
         <div class="card">
-            <h5 class="card-header p-3">EDIT PROFILE</h5>
+            <h5 class="card-header p-3"><i class="fa-solid fa-user"></i> Edit Data Diri</h5>
             <div class="card-body mx-2">
                 <form action="/dashboard/profile/{{ $user->id }}" method="POST">
                     @method('put')
                     @csrf
                         <div class="row">
                         <div class="mb-3">
-                          <label for="name" class="form-label">Name</label>
+                          <label for="name" class="form-label">Nama</label>
                           <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name) }}" readonly>
                         </div>
                         </div>
                         <div class="row">
                         <div class="mb-3">
-                          <label for="address" class="form-label">Address</label>
+                          <label for="address" class="form-label">Alamat</label>
                           <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $user->address) }}" required>
                         </div>
                         </div>
                         <div class="row">
                         <div class="mb-3 col-6">
-                          <label for="divisions_id" class="form-label">Divisions</label>
+                          <label for="divisions_id" class="form-label">Divisi</label>
                           <input type="hidden" class="form-control" id="divisions_id" name="divisions_id" value="{{ $user->divisions_id }}" readonly required>
-                          <input type="text" class="form-control" value="{{ $user->division->name ?? 'Division does not exist' }}" readonly required>
+                          <input type="text" class="form-control" value="{{ $user->division->name ?? 'DIVISI TIDAK DITEMUKAN! SILAHKAN HUBUNGI ADMIN!' }}" readonly required>
                         </div>
                         <div class="mb-3 col-6">
-                          <label for="phonenumber" class="form-label">Phone Number</label>
+                          <label for="phonenumber" class="form-label">Nomor Telepon</label>
                           <input type="text" class="form-control" id="phonenumber" name="phonenumber" value="{{ old('phonenumber', $user->phonenumber) }}" required>
                         </div>
                         <div class="mb-3 col-6">
@@ -50,8 +50,8 @@
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                     </div>
-                    <button class="btn btn-dark" type="submit">Update Profile</button>
-                    <a href="/dashboard/profile" class="btn btn-outline-dark my-3">Cancel</a>
+                    <a href="/dashboard/profile" class="btn btn-outline-dark my-3">Kembali</a>
+                    <button class="btn btn-dark" type="submit">Perbarui Data</button>
                 </form>
                 </div>
             </div>
@@ -60,19 +60,21 @@
           <div class="col-6">
             <div class="card">
                 <div class="card-header d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center p-3">
-                    <h5><i class="fa-solid fa-circle-info"></i> Informations</h5>
+                    <h5><i class="fa-solid fa-circle-info"></i> Informasi</h5>
                 </div>
                 <div class="card-body">
                     <p>
-                        You can change data such as<br>
-                        1. Address<br>
-                        2. Phone Number<br>
-                        3. Email Address<br>
+                        Kamu bisa mengubah beberapa data berikut<br>
+                        1. Alamat<br>
+                        2. Nomor Telepon<br>
+                        3. Alamat Email<br><br>
 
-                        For <b>name</b> changes, please contact the admin.
+                        Untuk melakukan perubahan Data Diri silahkan masukan Password!.<br>
+
+                        Untuk perubahan yang lainnya silahkan hubungi Admin.
 
                         <div>
-                            <b>Contact :</b><br>
+                            <b>Kontak :</b><br>
                             <p class="text-dark text-decoration-none">
                             <i class="fa-solid fa-envelope"></i> contact@kirinpeformance.com<br>
                             <i class="fa-solid fa-phone my-2"></i> +1 (213) 123-123<br>

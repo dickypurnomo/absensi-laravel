@@ -1,61 +1,30 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Add Divisions</h1>
-</div>
-
-@if (session()->has('success'))
-<div class="alert alert-success" role="alert">
-    {{ session('success') }}
-</div>
-@endif
-
-<div class="row mb-3">
-        <div class="col-6">
-        <div class="card">
-            <h5 class="card-header p-3"><i class="fa-solid fa-users"></i> Add Divisions</h5>
-            <div class="card-body mx-2">
-                <form action="/dashboard/divisions" method="POST">
-                    @csrf
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Division Name</label>
-                                <input type="name" class="form-control" id="name" name="name" placeholder="CEO" autofocus required>
-                            </div>
-                        <button class="btn btn-dark py-2 mt-3" type="submit">Add Division</button>
-                    </div>
-                </form>
-                </div>
-            </div>
-
-            <div class="col-6">
-                <div class="card mb-3">
-                    <h5 class="card-header p-3"><i class="fa-solid fa-circle-info"></i> Informations</h5>
-                    <div class="card-body">
-                      <p>
-                        The addition of divisions must be in accordance with the required divisions. <br>
-                        If there is an error in the division, please update the division data.
-                      </p>
-                    </div>
-                  </div>
-            </div>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Divisi</h1>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
+            <a href="/dashboard/divisions/create" class="btn btn-dark">Tambah Data</a>
+        </div>
     </div>
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Division</h1>
+    @if (session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('success') }}
     </div>
+    @endif
 
     <div class="row">
         <div class="col-6">
             <div class="card mb-3">
-                <h5 class="card-header p-3"><i class="fa-solid fa-circle-info"></i> Division</h5>
+                <h5 class="card-header p-3"><i class="fa-solid fa-circle-info"></i> Divisi</h5>
                 <div class="card-body">
                     <table class="table table-striped table-hover">
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">ACTION</th>
+                            <th scope="col">NAMA DIVISI</th>
+                            <th scope="col">AKSI</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -67,8 +36,9 @@
                                     <form action="/dashboard/divisions/{{ $division->id }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button class="badge bg-dark border-0" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></button>
+                                        <button type="button" class="badge bg-dark border-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button>
                                     </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -76,7 +46,40 @@
                 </div>
               </div>
         </div>
+        <div class="col-6">
+            <div class="card mb-3">
+                <h5 class="card-header p-3"><i class="fa-solid fa-circle-info"></i> Informasi</h5>
+                <div class="card-body">
+                  <p>
+                    Penambahan divisi harus sesuai dengan keperluan! <br>
+                    Jika ada error maka perbaiki divisinya!
+                  </p>
+                </div>
+              </div>
+        </div>
     </div>
-</div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-circle-exclamation"></i> Konfirmasi Hapus</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h5>Apakah Anda yakin ingin menghapus data ini?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <form action="/dashboard/divisions/{{ $division->id }}" method="POST" class="d-inline">
+            @method('delete')
+            @csrf
+            <button type="submit" class="btn btn-danger">Hapus</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @endsection

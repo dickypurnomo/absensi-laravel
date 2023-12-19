@@ -26,7 +26,10 @@ class DivisionController extends Controller
      */
     public function create()
     {
-        //
+        return view ('dashboard.division.create', [
+            'title' => 'Dashboard | Add Divisions',
+            'divisions' => Division::all()
+        ]);
     }
 
     /**

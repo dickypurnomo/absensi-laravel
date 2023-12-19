@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Absensi;
+use App\Models\Division;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Division;
+use Illuminate\Support\Facades\Storage;
 
 class AbsensiController extends Controller
 {
@@ -52,7 +53,13 @@ class AbsensiController extends Controller
             'date' => 'required',
             'in' => 'required',
             'out' => 'nullable',
+            'image' => 'image|file|max:1024',
+            'reason' => 'nullable'
         ]);
+
+        if($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('bukti');
+        }
 
         $absensi = Absensi::create($validatedData);
 
@@ -65,7 +72,12 @@ class AbsensiController extends Controller
      */
     public function show(Absensi $absensi)
     {
-        //
+        return view('dashboard.absensi.show', [
+            "title" => "Dashboard | Absensi",
+            'active' => 'dashboard',
+            'absensis' => Absensi::all(),
+            'absensi' => $absensi,
+        ]);
     }
 
     /**

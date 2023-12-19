@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('in');
             $table->string('out');
             $table->string('status');
+            $table->string('image')->nullable();
+            $table->string('reason')->nullable();
             $table->timestamps();
         });
     }

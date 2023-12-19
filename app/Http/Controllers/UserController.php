@@ -28,7 +28,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view ('dashboard.employee.create', [
+            'title' => 'Dashboard | Add Empolyees',
+            'divisions' => Division::all()
+        ]);
     }
 
     /**

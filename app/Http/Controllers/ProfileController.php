@@ -68,13 +68,10 @@ class ProfileController extends Controller
             'divisions_id' => 'required',
             'address' => 'required',
             'phonenumber' => 'required|numeric',
-            'email' => 'required|email',
-            'password'  => 'required|min:5|max:255',
+            'email' => 'required|email'
         ];
 
         $validatedData = $request->validate($rules);
-
-        $validatedData['password'] = Hash::make($rules['password']);
 
         User::where('id', $user->id)->update($validatedData);
 

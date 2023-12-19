@@ -2,9 +2,9 @@
 
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Reports</h1>
+    <h1 class="h2">Laporan - {{ date('F Y')}}</h1>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
-        <h4>{{ date('F Y')}}</h4>
+        <button class="btn btn-dark" onclick="printReport()"><i class="fa-solid fa-file-arrow-down"></i> Cetak Laporan</button>
     </div>
 </div>
 
@@ -13,11 +13,11 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">NAME</th>
-        <th scope="col">DIVISION</th>
-        <th scope="col">DATE</th>
-        <th scope="col">IN</th>
-        <th scope="col">OUT</th>
+        <th scope="col">NAMA</th>
+        <th scope="col">DIVISI</th>
+        <th scope="col">TANGGAL</th>
+        <th scope="col">MASUK</th>
+        <th scope="col">KELUAR</th>
         <th scope="col">STATUS</th>
       </tr>
     </thead>
@@ -30,7 +30,7 @@
               @if ($absensi->division)
               {{ $absensi->division->name }}
               @else
-              <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
+              <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> DIVISI TIDAK DITEMUKAN!</p>
               @endif
             </td>
             <td>{{ $absensi->date }}</td>
@@ -46,11 +46,11 @@
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">NAME</th>
-        <th scope="col">DIVISION</th>
-        <th scope="col">DATE</th>
-        <th scope="col">IN</th>
-        <th scope="col">OUT</th>
+        <th scope="col">NAMA</th>
+        <th scope="col">DIVISI</th>
+        <th scope="col">TANGGAL</th>
+        <th scope="col">MASUK</th>
+        <th scope="col">KELUAR</th>
         <th scope="col">STATUS</th>
       </tr>
     </thead>
@@ -63,7 +63,7 @@
                 @if ($absensi->division)
                 {{ $absensi->division->name }}
                 @else
-                <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Division does not exist</p>
+                <p class="text-danger"><i class="fa-solid fa-triangle-exclamation"></i> DIVISI TIDAK DITEMUKAN!</p>
                 @endif
             </td>
             <td>{{ $absensi->date }}</td>
@@ -76,5 +76,26 @@
   </table>
 @endif
 
+    <script>
+function printReport() {
+    var date = new Date();
+    var monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    var currentMonth = monthNames[date.getMonth()];
+
+    var companyName = '<div style="float: left; font-size: 20px; font-weight: bold;">Kirin ★ Performance</div>';
+    var separator = '<hr style="border: 2px solid black; clear: both;" />';
+    var title = '<div style="font-size: 20px; font-weight: bold; text-align: right;">Laporan ' + currentMonth + '</div>';
+
+    var printContents = companyName + title + separator + document.querySelector('.table').outerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+}
+
+    </script>
 
 @endsection
